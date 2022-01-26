@@ -14,12 +14,6 @@
   background-color: rgb(240, 240, 240) !important;
 }
 
-.ce-active-chat-card {
-  background-color: #cabcdc !important;
-  border: 4px solid #cabcdc !important;
-  border-radius: 0px !important;
-}
-
 .ce-chat-subtitle-text {
   color: #595959 !important;
 }
@@ -304,4 +298,9 @@
   color: white;
   text-align: center;
   margin-top: 20px;
+}
+.ce-active-chat-card {
+  background-color: #cabcdc !important;
+  border: 4px solid #cabcdc !important;
+  border-radius: 14px !important;
 }
