@@ -330,3 +330,14 @@
   color: white !important;
   transition: 0.5s !important;
 }
+.logOut {
+  position: absolute;
+  z-index: 99;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  margin-right: -20px;
+  margin-bottom: 30px;
+  width: 25%;
+  color: red;
+}

@@ -15,6 +15,29 @@ function App() {
         userSecret={localStorage.getItem("password")}
         renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
       />
+      {localStorage.getItem("username") && (
+        <div className="logOut">
+          <button
+            className="ce-danger-button"
+            style={{
+              backgroundColor: "red",
+              fontSize: "15px",
+              padding: "10px",
+              borderRadius: "30px",
+              width: "90%",
+              borderColor: "red",
+              borderWidth: "1px",
+              color: "red",
+            }}
+            onClick={() => {
+              localStorage.clear();
+              window.location.reload();
+            }}
+          >
+            Log OUT
+          </button>
+        </div>
+      )}
     </div>
   );
 }

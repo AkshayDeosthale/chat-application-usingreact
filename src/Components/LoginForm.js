@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react/cjs/react.development";
 import axios from "axios";
 import main_menu from "./images/main_menu.gif";
+import { useGoogleOneTapLogin } from "react-google-one-tap-login";
 
 const projectID = "4f490a3f-849f-4c26-8ec2-3325df4471e4";
 
@@ -9,6 +10,17 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [googleOnClick, setGoogleOnClick] = useState(true);
+
+  useGoogleOneTapLogin({
+    disabled: googleOnClick,
+    onSuccess: (message) => console.log(message),
+    onError: (error) => console.log(error),
+    googleAccountConfigs: {
+      client_id:
+        "861098410431-83ccqi8tgpieoe6omserbgvm5rtjbqt9.apps.googleusercontent.com",
+    },
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +49,7 @@ const LoginForm = () => {
   return (
     <>
       <div className="wrapper">
+        <h1 align="center">{error}</h1>
         <div>
           <img src={main_menu} alt="main_menu" />
         </div>
@@ -66,7 +79,14 @@ const LoginForm = () => {
               </button>
             </div>
           </form>
-          <h1 align="center">{error}</h1>
+          <div align="center">
+            <button
+              className="button"
+              onClick={() => setGoogleOnClick(!googleOnClick)}
+            >
+              <span>Register Now</span>
+            </button>
+          </div>
         </div>
       </div>
     </>
